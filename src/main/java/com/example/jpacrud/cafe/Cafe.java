@@ -1,10 +1,14 @@
 package com.example.jpacrud.cafe;
 
 import jakarta.persistence.*;
-import lombok.NonNull;
+import lombok.*;
 
 @Entity
 @Table(name = "cafe")
+@Getter
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class Cafe {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,4 +21,8 @@ public class Cafe {
     private Double mapY;
     private String site;
     private String note;
+
+    public void updateCafeName(String name) {
+        this.name = name;
+    }
 }

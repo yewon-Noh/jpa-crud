@@ -54,3 +54,11 @@ public class Cafe {
     ...
 }
 ```
+
+## Repository 생성
+```java
+@Repository
+public interface CafeRepository extends JpaRepository<Cafe, Integer> {
+    
+}
+```
