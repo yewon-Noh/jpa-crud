@@ -62,3 +62,37 @@ public interface CafeRepository extends JpaRepository<Cafe, Integer> {
     
 }
 ```
+
+## CRUD 작성
+```java
+// Create - 생성
+Cafe savedCafe = cafeRepository.save(cafe);
+
+// Read - 조회
+Optional<Cafe> OptionalCafe = cafeRepository.findById(id);
+Cafe findCafe OptionalCafe.get();
+
+// Update - 수정
+Cafe cafe = cafeRepository.findById(id).get();
+cafe.setName(newName);
+
+// Delete - 삭제
+cafeRepository.delete(cafe);
+```
+**Setter를 사용하지 않는 것을 권장함**
+```java
+Cafe cafe = cafeRepository.findById(id).get();
+cafe.updateCafeName(newName);
+```
+
+```java
+public class Cafe {
+
+    @NonNull
+    private String name;
+
+    public void updateCafeName(String name) {
+        this.name = name;
+    }
+}
+```
