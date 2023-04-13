@@ -40,3 +40,17 @@ logging.level.org.hibernate.type.descriptor.sql=DEBUG
 
 logging.level.org.hibernate.SQL=DEBUG
 ```
+
+## 도메인 객체 생성
+```java
+@Entity
+@Table(name = "cafe")
+public class Cafe {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+    @NonNull
+    private String name;
+    ...
+}
+```
